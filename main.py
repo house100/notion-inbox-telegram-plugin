@@ -26,7 +26,7 @@ def main() -> None:
 
     while True:
         url = f"{BASE_URL}/getUpdates"
-        params = {"timeout": 100}
+        params = {"timeout": 600}
 
         if last_update_id is not None:
             params["offset"] = last_update_id + 1
@@ -38,7 +38,7 @@ def main() -> None:
             handle_updates(updates)
             last_update_id = updates[-1]["update_id"]
 
-        time.sleep(10)
+        time.sleep(60)
 
 if __name__ == "__main__":
     main()
